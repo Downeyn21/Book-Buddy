@@ -1,0 +1,51 @@
+
+
+.bookContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+    border: solid;
+    padding: 30px;
+    background-color: tan;
+    overflow: hidden;
+}
+
+.bookContainer img {
+    max-width: 200px;
+    border-radius: 20px;
+    border: solid 10px rgba(0, 0, 0, 0.266);
+}
+
+.listContainer {
+    border: solid;
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 30px;
+    margin: 40px;
+    overflow: scroll;
+    max-height: 80dvh;
+}
+
+.titleWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.availableContainer {
+    margin: auto;
+}
+
+/* =================NAVBAR============================ */
+
+.navBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid;
+    width: 100vw;
+}
