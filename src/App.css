@@ -107,8 +107,30 @@ body {
 
 .loginSelector:hover {
     background-color: red;
+    cursor: pointer;
 }
 
 .loginSelector {
     padding: 20px;
 }
+/* =====================Form=============================== */
+
+.formContainer {
+    border: solid;
+    padding: 50px;
+    margin: 70px;
+    width: 40%;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: min-content;
+    align-items: end;
+}
+
+.loginBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;

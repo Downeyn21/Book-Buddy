@@ -1,13 +1,20 @@
 import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+    const navigate = useNavigate()
 
 function clickHome() {
-    useNavigate("/")
+    navigate("/")
 }
 
-
-
+function clickLogin() {
+    navigate("/Login")
+    console.log("hello Login")
+}
+function clickRegister() {
+    navigate("/Register")
+    console.log("Hello Register")
+}
 
     return ( 
         <div>
@@ -17,8 +24,8 @@ function clickHome() {
             <div className="navBarContainer">
                 <div className="navSelector" onClick={clickHome}>Home</div>
                 <div className="loginContainer">
-                    <div className="loginSelector" >Login</div>
-                    <div className="loginSelector" >Register</div>
+                    <div className="loginSelector" onClick={clickLogin} >Login</div>
+                    <div className="loginSelector" onClick={clickRegister}>Register</div>
                 </div>
             </div>
         </div>
