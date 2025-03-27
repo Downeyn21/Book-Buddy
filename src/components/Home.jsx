@@ -26,8 +26,8 @@ function Home() {
                 {books.map((book) => {
                     return (
                         <div className="bookContainer" key={book.id}>
-                            <div className="imgContainer">
-                                <img src={book.coverimage} alt="Book Cover Unavailable" />
+                            <div className={"imgContainer"}>
+                                <img src={book.coverimage} alt={book.title} />
                             </div>
                             <div className="availableContainer">
                                 {book.available ? "Available" : "Not Available"}
