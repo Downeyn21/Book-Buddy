@@ -11,10 +11,9 @@ function App() {
   const [user, setUser] = useState()
   const [token, setToken] = useState()
 
-  useEffect(() => {
-    console.log("token Change set local")
-    localStorage.setItem("token", token)
-  },[token])
+  // useEffect(() => {
+  //   localStorage.setItem("token", token)
+  // },[token])
 
 
   const nathan = {
@@ -26,15 +25,6 @@ function App() {
     password: "goodjob"
   }
 
-  useEffect(() => {
-    console.log("USER => ", user)
-  })
-
-  if(user) {
-    console.log("this bitch is true")
-  } else {
-    console.log("no user :(")
-  }
 
   return (
     <>
@@ -43,7 +33,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/Login' element={<Login setToken={setToken} token={token} />}/>
         <Route path='/Register' element={<Register />} />
-        <Route path='/Account' element={<Account />} />
+        <Route path='/Account' element={<Account setUser={setUser} user={user} token={token}/>} />
       </Routes>
     </>
   )

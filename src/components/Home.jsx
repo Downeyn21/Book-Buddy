@@ -13,7 +13,6 @@ function Home() {
         }
         setState()
     },[])
-    console.log("books useState =>", books)
     
     return ( 
         <div>

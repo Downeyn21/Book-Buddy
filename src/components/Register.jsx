@@ -10,9 +10,6 @@ function Register() {
     const [confPassword, setConfPassword] = useState("")
     const [message, setMessage] = useState("test")
 
-    useEffect(() => {
-        console.log("FirstName Value =>", firstName)
-    }, [firstName])
 // =======================================================
     const account = {
         firstname: firstName,

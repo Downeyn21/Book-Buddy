@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 function Login({setToken, token}) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
     const navigate = useNavigate()
 
     const data = {
@@ -13,11 +12,11 @@ function Login({setToken, token}) {
         password: password,
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        setToken(LoginApi(data))
+        const tkn = await LoginApi(data)
+        localStorage.setItem("token", tkn.token)
         navigate("/Account")
-        console.log("bitch", token)
     }
 
 
