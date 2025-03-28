@@ -48,3 +48,13 @@ export async function AccountApi(token) {
         console.error(error)
     }
 }
+
+export async function ResBooksApi(token) {
+    try {
+        const response = await fetch(`${apiUrl}/reservations`)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        console.error("ResBooksApi error => ", error)
+    }
+}

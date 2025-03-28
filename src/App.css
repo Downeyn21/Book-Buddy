@@ -144,3 +144,14 @@ body {
     color: red;
 
 }
+
+/* =============================================== */
+
+.accountContainer {
+    border: solid;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
