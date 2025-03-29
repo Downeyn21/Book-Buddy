@@ -22,19 +22,20 @@ function Home() {
         : books
     
     const SortedBooks = willSort ?
-        [...FilteredBooks].sort((a,b) => a.localeCompare(b))
+        [...FilteredBooks].sort((a,b) => a.title.localeCompare(b.title))
         : [...FilteredBooks]
 
     return ( 
         <div>
             <div className="titleWrapper">
-                <button className="{willFilter ? 
-                filterBtnT : FilterBtnF
-                }" onClick={() => {setWillFilter(!willFilter)}}>Filter Avaliable</button>
+                <button className={willFilter ? 
+                "filterBtnT" : "filterBtnF"
+                } onClick={() => {setWillFilter(!willFilter)}}>Filter Avaliable</button>
                 <h1>
                     Book Buddy
                 </h1>
-                <button onClick={() => {setWillsort(!willSort)}}>Sort A-Z</button>
+                <button className={willSort ?
+                "sortBtnT" : "sortBtnF"} onClick={() => {setWillsort(!willSort)}}>Sort A-Z</button>
             </div>
             <div className="listContainer">
                 {SortedBooks.map((book) => {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RegisterApi } from "../api";
+import { useNavigate } from "react-router-dom";
 
 
 function Register() {
@@ -8,7 +9,8 @@ function Register() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confPassword, setConfPassword] = useState("")
-    const [message, setMessage] = useState("test")
+    const [message, setMessage] = useState("Please enter your information")
+    const navigate = useNavigate()
 
 // =======================================================
     const account = {
@@ -23,11 +25,14 @@ function Register() {
         if (password !== confPassword) {
             setMessage("YOU IDIOT, you need to type the same password twice!!!")
         } else {
-            setMessage("congrats on making a stupid fake account!!")
-            RegisterApi(account)
+            setMessage(RegisterApi(account))
+            navigate()
         }
     }
 
+    function clickHandle() {
+        navigate("/Login")
+    }
 //==========================================================
     return ( 
         <div className="formContainer">
@@ -54,7 +59,7 @@ function Register() {
                 </div>
                 <div className="loginBtn">
                     <button type="submit">Create Account</button>
-                    <button>Already a Member?</button>
+                    <button onClick={clickHandle}>Already a Member?</button>
                 </div>
                 <div className="formMessage">
                     {message}

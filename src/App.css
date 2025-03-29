@@ -1,4 +1,6 @@
-
+button {
+    cursor: pointer;
+}
 
 .bookContainer {
     display: flex;
@@ -8,8 +10,9 @@
     height: 250px;
     border: solid;
     padding: 30px;
-    background-color: tan;
+    background-color: rgb(68, 68, 68);
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .bookContainer img {
@@ -23,13 +26,12 @@
 
 .imgContainer {
     text-align: center;
-
     height: 230px;
 }
 
 .listContainer {
     border: solid;
-    background-color: red;
+    background-color: rgb(24, 24, 24);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -43,12 +45,36 @@
 
 .titleWrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: 0;
 }
 
 .titleWrapper h1 {
     margin: 0;
+}
+
+.titleWrapper button {
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+
+}
+
+.filterBtnT {
+    background-color: green;
+}
+
+.filterBtnF {
+    background-color: red;
+}
+
+.sortBtnT {
+    background-color: green;
+}
+
+.sortBtnF {
+    background-color: red;
 }
 
 .availableContainer {
@@ -87,6 +113,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(40, 40, 40);
+    color: white;
 }
 
 .navTitle {
@@ -118,13 +146,24 @@ body {
 .loginSelector {
     padding: 20px;
 }
+
+.labelContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 /* =====================Form=============================== */
 
 .formContainer {
+    display: flex;
+    justify-content: center;
     border: solid;
+    border-radius: 20px;
+    background-color: rgb(30, 30, 30);
+    width: 325px;
     padding: 50px;
+    padding-bottom: 20px;
     margin: 70px;
-    width: 40%;
 }
 
 .formLogin {
@@ -136,13 +175,25 @@ body {
 }
 
 .loginBtn {
+    margin-top: 30px;
     width: 100%;
     display: flex;
+    gap: 30px;
     justify-content: space-between;
+}
+
+.formLogin button {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: rgb(158, 158, 158);
 }
 
 .formMessage {
     color: red;
+    text-align: center;
+    text-wrap: wrap;
+    margin: 10px;
 
 }
 

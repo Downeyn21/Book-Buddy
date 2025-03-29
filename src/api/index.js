@@ -18,6 +18,7 @@ export async function RegisterApi(data) {
             body: JSON.stringify(data)
         })
         const result = await response.json()
+        return result.message
     } catch (error) {
         console.error("Register error => ", error)
     }

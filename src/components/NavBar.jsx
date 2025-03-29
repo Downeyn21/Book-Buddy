@@ -27,7 +27,7 @@ function NavBar() {
     return ( 
         <div>
             <div className="navTitle">
-                <h2>{localStorage.getItem("token")? "token = true": "token = false"}</h2>
+                <h2></h2>
             </div>
             <div className="navBarContainer">
                 <div className="navSelector" onClick={clickHome}>Home</div>

@@ -6,7 +6,9 @@ import { TakeBook } from "../api";
 function SingleBooks() {
     const [book, setBook] = useState([])
     const {bookId} = useParams()
-
+    const tkn = localStorage.getItem("token")
+    const [bookTaken, setBookTeken] = useState(false)
+    
     useEffect(() => {
         async function setSingleBook() {
             const result = await SingleBook(bookId)
@@ -17,10 +19,9 @@ function SingleBooks() {
 
     
     async function clickHandle() {
-        const tkn = localStorage.getItem("token")
-        
+        setBookTeken(true)
         const result = await TakeBook(tkn, bookId)
-        console.log("take book => ", result)
+
     }
 
 
@@ -40,11 +41,20 @@ function SingleBooks() {
                 <div>
                     {book.description}
                 </div>
-                <div>
-                    {book.available ? (
-                    <button onClick={() => {clickHandle()}} >take this bad boy?</button>):(
-                        <span>look like some idiot took this one</span>
-                    )}
+                <div>{tkn ? 
+                <div>{bookTaken ? 
+                    <div>Thank you for selecting this book, if you would like to view it please click on your account </div> : 
+                    <div>
+                        {book.available ? (
+                        <button onClick={() => {clickHandle()}} >take this bad boy?</button>):(
+                            <span>Book Not Available</span>
+                        )}
+                    </div>
+
+                    }
+                
+                </div>
+                : <div>please login to checkout this book</div>}
                 </div>
             </div>
         </div>

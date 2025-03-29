@@ -29,6 +29,7 @@ function Account({user, setUser, token}) {
         RemoveBook(id, tkn)
     }
 
+
     return ( user ? (
             <div>
                 <div className="accountContainer">
@@ -48,7 +49,7 @@ function Account({user, setUser, token}) {
                 <div>
                     <div>
                         <h3>your reserved books</h3>
-                    </div>
+                    </div> {resBooks ?
                     <div className="resBookContainer">{resBooks.length === 0 ? "go reserve some books loser" : 
                         resBooks.map((book) => {
                             return (
@@ -60,6 +61,7 @@ function Account({user, setUser, token}) {
                         })
                         }
                     </div>
+                    : <div>Just one sec cuite pie ;)</div>}
                 </div>
             </div>
         ):(
