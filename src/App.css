@@ -18,6 +18,7 @@
     border-radius: 20px;
     overflow: hidden;
     border: solid 10px rgba(0, 0, 0, 0.266);
+    cursor: pointer;
 }
 
 .imgContainer {
@@ -146,6 +147,33 @@ body {
 }
 
 /* =============================================== */
+.singleBookWrapper img {
+    height: 300px;
+    border-radius: 25px;
+    border: solid 5px rgba(0, 0, 0, 0.31);
+    margin: 40px;
+}
+
+.singleBookWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.singleImgContainer {
+
+}
+
+.detailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: solid;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* ====================================== */
 
 .accountContainer {
     border: solid;
@@ -153,5 +181,33 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
+}
 
+.resBookContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    gap: 30px;
+}
+
+.resBookContainer img {
+    height: 175px;
+    margin-top: 25px;
+    border-radius: 20px;
+}
+
+.resBookContainer button {
+    width: 75%;
+    margin-bottom: 20px;
+}
+
+.resBookImgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    justify-content: center;
+    border: solid 20px rgba(0, 0, 0, 0.37);
+    height: 300px;
+    width: 300px;
 }

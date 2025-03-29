@@ -1,31 +1,46 @@
 import { useEffect, useState } from "react";
 import { GetApi } from "../api";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
     const [books, setBooks] = useState([])
+    const navigate = useNavigate()
+    const [willFilter, setWillFilter] = useState(false)
+    const [willSort, setWillsort] = useState(false)
 
-    
     useEffect(() => {    
         async function setState() {
-            let result = await GetApi()
+            const result = await GetApi()
             setBooks(result)
         }
         setState()
     },[])
     
+    const FilteredBooks =  willFilter ? 
+        books.filter((book) => book.available === true)
+        : books
+    
+    const SortedBooks = willSort ?
+        [...FilteredBooks].sort((a,b) => a.localeCompare(b))
+        : [...FilteredBooks]
+
     return ( 
         <div>
             <div className="titleWrapper">
+                <button className="{willFilter ? 
+                filterBtnT : FilterBtnF
+                }" onClick={() => {setWillFilter(!willFilter)}}>Filter Avaliable</button>
                 <h1>
                     Book Buddy
                 </h1>
+                <button onClick={() => {setWillsort(!willSort)}}>Sort A-Z</button>
             </div>
             <div className="listContainer">
-                {books.map((book) => {
+                {SortedBooks.map((book) => {
                     return (
-                        <div className="bookContainer" key={book.id}>
-                            <div className={"imgContainer"}>
+                        <div className="bookContainer" key={book.id} onClick={() => {navigate(`SingleBooks/${book.id}`)}}>
+                            <div className={"imgContainer"} >
                                 <img src={book.coverimage} alt={book.title} />
                             </div>
                             <div className="availableContainer">

@@ -1,15 +1,17 @@
 import './App.css'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Router, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Register from './components/Register'
 import { useEffect, useState } from 'react'
 import Account from './components/Account'
+import SingleBooks from './components/SingleBooks'
 
 function App() {
   const [user, setUser] = useState()
   const [token, setToken] = useState()
+  const [bookId, setBookId] = useState("")
 
   // useEffect(() => {
   //   localStorage.setItem("token", token)
@@ -34,6 +36,7 @@ function App() {
         <Route path='/Login' element={<Login setToken={setToken} token={token} />}/>
         <Route path='/Register' element={<Register />} />
         <Route path='/Account' element={<Account setUser={setUser} user={user} token={token}/>} />
+        <Route path='/SingleBooks/:bookId' element={<SingleBooks />} />
       </Routes>
     </>
   )

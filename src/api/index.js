@@ -51,10 +51,49 @@ export async function AccountApi(token) {
 
 export async function ResBooksApi(token) {
     try {
-        const response = await fetch(`${apiUrl}/reservations`)
+        const response = await fetch(`${apiUrl}/reservations`, {
+            headers: {Authorization: `Bearer ${token}`}
+    })
         const result = await response.json()
         return result
     } catch (error) {
         console.error("ResBooksApi error => ", error)
+    }
+}
+
+export async function SingleBook(id) {
+    try {
+        const response = await fetch(`${apiUrl}/books/${id}`)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function TakeBook(token, id) {
+    try {
+        const response = await fetch(`${apiUrl}/reservations`, {
+            method: "POST",
+            headers: 
+            {Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"},
+            body: JSON.stringify({bookId: id})
+        })
+        const result = response.json()
+        return result
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function RemoveBook(id, token) {
+    try {
+        const response = fetch(`${apiUrl}/reservations/${id}`, {
+            method: "DELETE",
+            headers: {Authorization: `Bearer ${token}`}
+        })
+    } catch (error) {
+        console.error(error)
     }
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AccountApi } from "../api";
 import { ResBooksApi } from "../api";
-
+import { RemoveBook } from "../api";
 
 function Account({user, setUser, token}) {
     const tkn = localStorage.getItem("token")
@@ -18,12 +18,16 @@ function Account({user, setUser, token}) {
     }, [])
 
     useEffect(() => {
-        async function setResBooks() {
+        async function setBooks() {
             const result = await ResBooksApi(tkn)
             setResBooks(result)
         }
+        setBooks()
     })
 
+    function clickHandle(id) {
+        RemoveBook(id, tkn)
+    }
 
     return ( user ? (
             <div>
@@ -45,12 +49,16 @@ function Account({user, setUser, token}) {
                     <div>
                         <h3>your reserved books</h3>
                     </div>
-                    <div>{resBooks.length === 0 ? "go reserve some books loser" : 
+                    <div className="resBookContainer">{resBooks.length === 0 ? "go reserve some books loser" : 
                         resBooks.map((book) => {
                             return (
-                                <div>{book.title}</div>
+                                <div key={book.id} className="resBookImgContainer">
+                                    <img src={book.coverimage} alt={"book.title"} />
+                                    <button onClick={() => {clickHandle(book.id)}}>Remove</button>
+                                </div>
                             )
-                        })}
+                        })
+                        }
                     </div>
                 </div>
             </div>
